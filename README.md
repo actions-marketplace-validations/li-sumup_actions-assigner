@@ -6,9 +6,7 @@ The Action will only auto assign the PR.
 
 ## Inputs
 
-| Name | Description | Example |
-| --- | --- | --- |
-| `token` | **Required if using team-reviewers** A `repo` scoped personal access token. [Why](https://github.com/peter-evans/create-pull-request/issues/155#issuecomment-611904487). [Create one here](https://github.com/settings/tokens/new). | ${{ secrets.GH_TOKEN }} |
+none
 
 ## Example workflow
 
@@ -24,6 +22,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: li-sumup/actions-assigner@v1
-        with:
-          token: ${{ secrets.GH_ACTIONS_CI_TOKEN }}
 ```

@@ -5,7 +5,7 @@ const { handle } = require('./github')
 const run = async () => {
   try {
     const token = getInput('token', { required: true })
-    await handle(token, reviewers, teamReviewers)
+    await handle(token)
   } catch (error) {
     setFailed(error.message)
   }

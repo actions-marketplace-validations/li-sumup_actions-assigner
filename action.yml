@@ -4,11 +4,6 @@ author: '@delivery-much'
 branding:
   icon: 'code'
   color: 'yellow'
-inputs:
-  token:
-    description: 'GitHub token'
-    default: ${{ github.token }}
-    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'

@@ -6804,7 +6804,7 @@ const { handle } = __webpack_require__(790)
 const run = async () => {
   try {
     const token = getInput('token', { required: true })
-    await handle(token, reviewers, teamReviewers)
+    await handle(token)
   } catch (error) {
     setFailed(error.message)
   }
