@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/delivery-much/actions-assigner.git"
+    "url": "git+https://github.com/li-sumup/actions-assigner.git"
   },
   "keywords": [
     "GitHub",
@@ -20,9 +20,9 @@
   "author": "@delivery-much",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/delivery-much/actions-assigner/issues"
+    "url": "https://github.com/li-sumup/actions-assigner/issues"
   },
-  "homepage": "https://github.com/delivery-much/actions-assigner#readme",
+  "homepage": "https://github.com/li-sumup/actions-assigner#readme",
   "dependencies": {
     "@actions/core": "^1.2.4",
     "@actions/github": "^4.0.0",

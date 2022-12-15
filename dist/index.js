@@ -6804,8 +6804,6 @@ const { handle } = __webpack_require__(790)
 const run = async () => {
   try {
     const token = getInput('token', { required: true })
-    const reviewers = getInput('reviewers', { required: false })
-    const teamReviewers = getInput('team-reviewers', { required: false })
     await handle(token, reviewers, teamReviewers)
   } catch (error) {
     setFailed(error.message)
@@ -7214,14 +7212,11 @@ const { context, getOctokit } = __webpack_require__(469)
  * Creates Octokit instance and run assign and review.
  *
  * @param {string} token - GitHub token
- * @param {string} reviewers - GitHub usernames
- * @param {string} teamReviewers - GitHub teams
  */
-const handle = async (token, reviewers, teamReviewers) => {
+const handle = async (token) => {
   if (context.eventName === 'pull_request') {
     const octokit = getOctokit(token)
     await assign(octokit)
-    if (reviewers || teamReviewers) await review(octokit, reviewers, teamReviewers)
   } else {
     throw new Error('Sorry, this Action only works with pull requests.')
   }
@@ -7243,28 +7238,6 @@ const assign = async (octokit) => {
     })
   } catch (err) {
     throw new Error(`Couldn't assign pull request.\n  Error: ${err}`)
-  }
-}
-
-/**
- * Request PR review to given reviewers.
- *
- * @param {Octokit} octokit - Octokit instance
- * @param {string} reviewers - GitHub usernames
- * @param {string} teamReviewers - GitHub teams
- */
-const review = async (octokit, reviewers, teamReviewers) => {
-  try {
-    const { owner, repo } = context.issue
-    await octokit.pulls.requestReviewers({
-      owner: owner,
-      repo: repo,
-      pull_number: context.payload.pull_request.number,
-      reviewers: reviewers.split(',').filter(x => x !== context.actor) || undefined,
-      team_reviewers: teamReviewers.split(',') || undefined
-    })
-  } catch (err) {
-    throw new Error(`Couldn't request review.\n  Error: ${err}`)
   }
 }
 

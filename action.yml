@@ -1,5 +1,5 @@
-name: 'Auto assign PR and request review'
-description: 'Auto assign PR and request review'
+name: 'Auto assign PR'
+description: 'Auto assign PR to the creator'
 author: '@delivery-much'
 branding:
   icon: 'code'
@@ -8,12 +8,6 @@ inputs:
   token:
     description: 'GitHub token'
     default: ${{ github.token }}
-    required: false
-  reviewers:
-    description: 'GitHub usernames'
-    required: false
-  team-reviewers:
-    description: 'GitHub teams'
     required: false
 runs:
   using: 'node12'
